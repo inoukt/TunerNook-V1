@@ -55,8 +55,13 @@
 - Create: Git commit, tag `v0.1.6-beta.1`, GitHub prerelease and executable asset.
 - Update: `AGENTS.md`, this plan's completion boxes.
 
-- [ ] Commit the app-version update and release notes on `main`; fast-forward `codex/four-area-app-split` to the same commit.
-- [ ] Create/push `v0.1.6-beta.1` without moving `v0.1.5`.
-- [ ] Create the GitHub prerelease and attach only `TunerNook-v0.1.6-beta.1-windows-x64.exe`.
-- [ ] Verify the remote release flag, tag SHA, asset size, and repository tree contains no BIN/XDF payloads.
-- [ ] Mark the release task complete in the plan and execution ledger.
+- [x] Commit the app-version update and release notes on `main`; fast-forward `codex/four-area-app-split` to the same commit.
+- [x] Create/push `v0.1.6-beta.1` without moving `v0.1.5`.
+- [x] Create the GitHub prerelease and attach only `TunerNook-v0.1.6-beta.1-windows-x64.exe`.
+- [x] Verify the remote release flag, tag SHA, asset size, and repository tree contains no BIN/XDF payloads.
+- [x] Mark the release task complete in the plan and execution ledger.
+
+Release tag `v0.1.6-beta.1` points to `a0069ff`; the prerelease is at
+`https://github.com/inoukt/TunerNook-V1/releases/tag/v0.1.6-beta.1`. Its sole
+asset is the 13,166,080-byte Windows x64 executable; uploaded and local SHA-256
+both equal `3207ef92b59f126bce4d9d03f8bcdbf3097d2ec1e62b7b8aef042c95aad95732`.

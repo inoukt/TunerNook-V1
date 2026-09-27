@@ -574,7 +574,7 @@ Final verification (2026-09-27): formatting clean; core tests 12/12; app tests
 smoke passes 21/21 (including graceful release GUI close and unchanged fixture
 BIN checksum).
 
-## Current status: first beta release — IN PROGRESS (2026-09-27)
+## Current status: first beta release — COMPLETE (2026-09-27)
 
 Plan/spec: `docs/superpowers/plans/2026-09-27-first-beta-release.md` and
 `docs/superpowers/specs/2026-09-27-first-beta-release.md`.
@@ -582,3 +582,6 @@ Plan/spec: `docs/superpowers/plans/2026-09-27-first-beta-release.md` and
 - Release candidate is `0.1.6-beta.1`, following the saved `v0.1.5` baseline.
 - Keep MIT. The GitHub prerelease must contain only the Windows x64 app
   executable; never attach BIN/XDF fixtures.
+- Public prerelease: `https://github.com/inoukt/TunerNook-V1/releases/tag/v0.1.6-beta.1`.
+- Release smoke passed 21/21. The sole executable asset matches the locally
+  built, smoke-tested release binary by SHA-256; no BIN/XDF files are included.
