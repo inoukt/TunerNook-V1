@@ -1,0 +1,12 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/tuner-core",
+    "crates/tuner-cal",
+    "crates/tuner-cli",
+    "crates/tuner-api",
+    "crates/tuner-xdf",
+    "crates/tuner-transfer",
+    "crates/tuner-app",
+]
+default-members = ["crates/tuner-cli"]

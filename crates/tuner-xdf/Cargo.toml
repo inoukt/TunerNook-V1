@@ -1,0 +1,10 @@
+[package]
+name = "tuner-xdf"
+version = "0.1.0"
+edition = "2021"
+description = "Tolerant XDF definitions and safe BIN resolution for TunerNook"
+license = "MIT"
+
+[dependencies]
+tuner-core = { path = "../tuner-core" }
+tuner-cal = { path = "../tuner-cal" }

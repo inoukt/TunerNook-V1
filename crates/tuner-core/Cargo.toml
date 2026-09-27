@@ -1,0 +1,9 @@
+[package]
+name = "tuner-core"
+version = "0.1.0"
+edition = "2021"
+description = "Safe binary editing and diagnostics primitives for TunerNook"
+license = "MIT"
+
+[lib]
+path = "src/lib.rs"

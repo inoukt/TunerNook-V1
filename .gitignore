@@ -1,0 +1,27 @@
+# Rust build output and local caches
+/target/
+/.freebuff/
+/.superpowers/
+/.worktrees/
+
+# Local logs, environment, and editor state
+*.log
+*.stdout
+*.stderr
+.env
+.env.*
+!.env.example
+
+# Private calibration fixtures and extracted definitions (never publish)
+/Test bin and xdf/
+/vbf_extracted*.bin
+/vbf_extracted*.xdf
+
+# Local photos and one-off design capture
+/*.jpg
+/*.jpeg
+/*.png
+/2026-09-10-tunerNook-design.md
+
+# Draft design not yet approved for publication
+/docs/superpowers/specs/2026-09-27-tuner-app-four-area-split.md

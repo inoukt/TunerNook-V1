@@ -1,0 +1,17 @@
+[package]
+name = "tuner-app"
+version = "0.1.5"
+edition = "2021"
+license = "MIT"
+
+[dependencies]
+arboard = { version = "3.6.1", default-features = false }
+eframe = { version = "0.36.2", default-features = false, features = ["default_fonts", "glow"] }
+image = { version = "0.25.10", default-features = false, features = ["bmp", "jpeg", "png"] }
+rfd = { version = "0.17.2", default-features = false }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tuner-core = { path = "../tuner-core" }
+tuner-cal = { path = "../tuner-cal" }
+tuner-xdf = { path = "../tuner-xdf" }
+tuner-transfer = { path = "../tuner-transfer" }

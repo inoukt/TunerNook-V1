@@ -1,0 +1,6 @@
+[package]
+name = "tuner-cal"
+version = "0.1.0"
+edition = "2021"
+description = "Safe XDF engineering-unit conversion expressions"
+license = "MIT"
