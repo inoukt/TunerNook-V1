@@ -4,7 +4,7 @@
 
 **Goal:** Publish a curated v0.1.5 source backup to the new public GitHub repository without local calibration data or build artifacts.
 
-**Architecture:** Add source-repository metadata and fixture guidance, make private-fixture tests opt-in, then create and publish an audited baseline commit on `main`. Preserve the old repository as `upstream`; publish a separate development branch at the same base for the later app split.
+**Architecture:** Add source-repository metadata and fixture guidance, make private-fixture tests opt-in, then publish an audited baseline commit and tag. Preserve the old repository as `upstream`; publish a separate development branch for the later app split.
 
 **Tech Stack:** Git/GitHub CLI and the existing Rust/Cargo workspace. No new dependencies.
 
@@ -23,7 +23,7 @@
 1. No private BIN/XDF or extracted-definition file is staged, including the spaced fixture directory.
 2. Root photos, logs, `target/`, local caches, and SDD snapshots stay out of the public commit.
 3. A public clone's default workspace test run does not fail because private fixtures are absent; fixture tests remain explicit opt-ins.
-4. The pushed `main`, `v0.1.5` tag, and development branch all point to the reviewed baseline, and `upstream` is untouched.
+4. `v0.1.5` points to the reviewed app baseline; `main` and the development branch share the published baseline, preserved GitHub funding setup, and publication record, while `upstream` is untouched.
 5. MIT applies only to project-authored code; the README clearly distinguishes local-only fixtures.
 
 ---
@@ -60,10 +60,12 @@
 
 - [x] Stage `.gitignore`, `LICENSE`, `AGENTS.md`, Cargo files, README, `crates/`, `docs/`, and `scripts/`; exclude local artifacts and the unapproved architecture spec.
 - [x] Review `git diff --cached --name-only` and the complete staged diff; confirm no calibration data, photos, logs, target artifacts, credentials, or private local paths.
-- [ ] Create the initial baseline commit on local `main` and push only to `origin/main`.
-- [ ] Create/push tag `v0.1.5` and branch `codex/four-area-app-split` at the baseline commit.
-- [ ] Verify remote URLs, branch/tag SHAs, default branch, and that `upstream` remains unchanged.
-- [ ] Run `cargo clean` after verification so build artifacts do not rebuild the 17.4 GiB cache.
+- [x] Create the initial baseline commit on local `main` and publish only to `origin`.
+- [x] Create/push tag `v0.1.5` at the baseline commit and branch `codex/four-area-app-split` from the baseline.
+- [x] Verify remote URLs, branch/tag SHAs, default branch, and that `upstream` remains unchanged.
+- [x] Run `cargo clean` after verification so build artifacts do not rebuild the large local cache.
+
+GitHub added `.github/FUNDING.yml` after the empty-repository check. That setup was preserved with an unrelated-history merge. The tag remains pinned to the exact v0.1.5 app baseline; `main` and the development branch advance together for this plan's completion record.
 
 ## Deferred
 
