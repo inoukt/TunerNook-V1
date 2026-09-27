@@ -7,7 +7,7 @@ static TEST_SEQUENCE: AtomicUsize = AtomicUsize::new(1);
 
 #[test]
 fn native_window_title_displays_app_version() {
-    assert_eq!(APP_TITLE, "TunerNook v0.1.5");
+    assert_eq!(APP_TITLE, concat!("TunerNook v", env!("CARGO_PKG_VERSION")));
     assert_eq!(APP_NAME, "TunerNook");
 }
 

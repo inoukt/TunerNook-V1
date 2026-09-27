@@ -573,3 +573,12 @@ Final verification (2026-09-27): formatting clean; core tests 12/12; app tests
 455/455; workspace tests 539/539; optimized release build succeeds; runtime
 smoke passes 21/21 (including graceful release GUI close and unchanged fixture
 BIN checksum).
+
+## Current status: first beta release — IN PROGRESS (2026-09-27)
+
+Plan/spec: `docs/superpowers/plans/2026-09-27-first-beta-release.md` and
+`docs/superpowers/specs/2026-09-27-first-beta-release.md`.
+
+- Release candidate is `0.1.6-beta.1`, following the saved `v0.1.5` baseline.
+- Keep MIT. The GitHub prerelease must contain only the Windows x64 app
+  executable; never attach BIN/XDF fixtures.
