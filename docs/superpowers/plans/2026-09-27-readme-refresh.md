@@ -52,4 +52,4 @@
 
 - [x] Check every README relative link/image path exists, test-count copy, screenshot hashes, and absence of calibration payloads.
 - [x] Run Markdown-oriented sanity checks and `cargo fmt --all -- --check` (no Rust changes expected).
-- [ ] Commit and push the README and screenshots to `origin/main` and sync `codex/four-area-app-split`.
+- [x] Commit and push the README and screenshots to `origin/main` and sync `codex/four-area-app-split`.
