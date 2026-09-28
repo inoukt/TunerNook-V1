@@ -121,13 +121,48 @@ for the faster everyday executable.
 The command result is JSON on stdout. Diagnostics are JSON Lines on stderr, so an agent can capture the result and independently read the execution trace. Add `--log-file path/to/run.jsonl` to persist the same trace.
 
 `cargo run -p tuner-app` opens the desktop workspace. Use the toolbar to open a
-BIN and XDF independently or as a pair. The app stores UI/workflow preferences
-under the platform app-data directory, exposes `Ctrl+K` command search and `F12`
-for the detailed debug report, and never overwrites an input BIN. Project
-workspace records are kept below `%APPDATA%\\TunerNook\\projects\\`, keyed by
-the normalized BIN path; the source BIN/XDF files are not modified. A newly
-opened BIN starts with category folders closed, while reopening that BIN
-restores its panel visibility, drawer widths/collapse state, category
+BIN and XDF independently or as a pair. TunerNook never silently overwrites an
+input BIN. The app also exposes `Ctrl+K` command search and `F12` for the
+detailed debug report.
+
+### Where projects and Recent BINs are saved
+
+These are separate records; none of them copies or moves your calibration BIN
+or XDF files.
+
+- **App settings and Recent BINs/XDFs (Windows):**
+  `%APPDATA%\TunerNook\settings.json` (usually
+  `C:\Users\<you>\AppData\Roaming\TunerNook\settings.json`). This
+  includes up to 16 most-recently opened BIN paths and 16 XDF paths, newest
+  first. Only successfully loaded files are added. The File → Recent BINs and
+  Recent XDFs menus reopen those paths; **Clear Recent** clears the remembered
+  list only, not the files on disk. Missing files appear unavailable.
+- **Automatically saved workspace state:**
+  `%APPDATA%\TunerNook\projects\<hash>.json`, one JSON file per normalized
+  BIN path. It remembers browser/workspace settings, named layout snapshots,
+  open windows, and table positions, sizes, zoom, and scroll. The hash is based
+  on the BIN path, not the BIN contents; this file stores preferences, not a
+  copy of the BIN/XDF.
+- **Optional project manifest (`.tnproj`):** **Save Project As…** writes a
+  manifest at the location you choose. It references the existing BIN and
+  optional XDF paths and records project/workspace preferences. It is not a
+  portable bundle: the referenced BIN/XDF files stay where they are and must
+  still be available at those paths.
+- **Workspace backgrounds:** chosen images are copied beside `settings.json`
+  into the app-managed `workspace-backgrounds` folder. This is separate from
+  project BIN/XDF data.
+
+The settings, per-BIN workspace JSON, and `.tnproj` manifest can contain full
+local file paths and workspace preferences. Review them before sharing: paths
+may reveal your Windows account name or folder layout. They do not embed the
+BIN or XDF file contents.
+
+On non-Windows systems, settings use `$XDG_CONFIG_HOME/TunerNook/settings.json`
+when `XDG_CONFIG_HOME` is set; otherwise TunerNook falls back to a relative
+`TunerNook/settings.json` path.
+
+A newly opened BIN starts with category folders closed, while reopening that
+BIN restores its panel visibility, drawer widths/collapse state, category
 expansion, browser filter/organization, open and active tables, tab order,
 favorites/recents, and each table's position, size, zoom, and scroll position.
 
