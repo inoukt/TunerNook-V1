@@ -1,11 +1,78 @@
 # TunerNook
 
-TunerNook is a clean-room, Windows-first calibration editor. Its safety-critical
-BIN/XDF backend remains dependency-free Rust, while the desktop shell provides a
-customizable workspace that can grow through stable commands, panels, and
-in-process extensions.
+**A personal BIN/XDF calibration editor, built for my own workflow and shared so others can help improve it.**
 
-## Current foundation
+I made TunerNook for myself: I wanted a Windows-first calibration workspace
+that remembers where I left off and makes it easier to inspect, compare, and
+carefully edit maps. I decided to share it because I hope other people can use
+it, improve it, and share it too. The code is MIT-licensed; calibration data is
+not included. The current release is an early beta, and thoughtful feedback is
+welcome.
+
+## Beta and safety notice
+
+TunerNook is experimental ECU calibration software. A defect, incorrect XDF,
+misidentified map, mistaken edit, or agent suggestion could corrupt data or
+damage an engine or vehicle. Keep untouched backups, independently verify every
+definition and change, and do not treat test results or AI output as a safety
+check. Do not flash or use a calibration unless you understand and have
+validated it.
+
+The software is provided “AS IS”, without warranty, under the MIT License. To
+the fullest extent allowed by law, I accept no responsibility for defects,
+data loss, vehicle or equipment damage, or other loss arising from using
+TunerNook or third-party agent output. You are responsible for deciding whether
+and how to use it.
+
+## Yes, it's vibe-coded
+
+TunerNook is vibe-coded. I used AI-assisted development, and I want to be
+straight about that. I also run tests regularly rather than asking people to
+trust the app on my word alone. For Beta 1, the workspace suite reported **531
+passed and 8 fixture-dependent tests skipped**, and the Windows release smoke
+test passed **21/21**. Those checks catch regressions; they do not prove the
+software is defect-free, correct for every ROM, or safe for a vehicle.
+
+## What makes TunerNook different
+
+These are the priorities I built around for my own work—not a claim that
+TunerNook replaces mature tools or is better at every job.
+
+- **Return to your workspace:** named layouts can remember which windows were
+  open, minimized, or focused, along with their positions, sizes, zoom, and
+  scroll state.
+- **See both the number and its storage:** inspect engineering values alongside
+  raw values, axes, conversions, and bytes in the Hex Editor.
+- **Explore unknown maps without pretending guesses are facts:** Map Finder
+  scores candidate grids and may suggest axes, but candidates and axes are
+  explicitly unverified until you check them.
+- **Move between views:** table selections connect to 3D surface points; BIN
+  comparison and transfer tools make the source/destination relationship
+  visible before edits are applied.
+- **Keep the user in charge:** NookLink lets you ask an external agent for
+  help. It returns findings or proposed changes for review; it does not
+  silently approve or apply them.
+- **Keep edits recoverable:** BIN edits use transactions and undo/redo. Saving
+  a modified BIN uses an explicit new output path instead of silently
+  overwriting the input.
+
+## Screenshots
+
+The screenshots below are from my development setup. They show the floating
+table, workspace, and 3D surface windows; the project does not include the
+calibration BIN or XDF used in the session.
+
+![TunerNook workspace with an editable table and linked 3D surface window](docs/screenshots/tunernook-workspace-table-3d.png)
+
+![TunerNook workspace with multiple floating table and surface windows](docs/screenshots/tunernook-multi-window-workspace.png)
+
+## Try the beta
+
+[Download TunerNook v0.1.6 Beta 1 for Windows x64](https://github.com/inoukt/TunerNook-V1/releases/tag/v0.1.6-beta.1).
+The downloadable executable contains no sample calibration data—bring your own
+BIN and XDF files.
+
+## Current capabilities
 
 - `tuner-core`: bounds-checked BIN loading, typed reads, atomic edit transactions, undo/redo, safe save-as, byte comparison, and structured diagnostics.
 - `tuner-xdf`: tolerant, storage-aware XDF normalization, checked cell-range resolution, integer/binary32 raw reads and writes, safe engineering-unit conversion, and bitfield-preserving edits over core transactions.
@@ -237,13 +304,16 @@ ignored by default. If you have the right to use the fixture, place the pair in
 run those tests as well. `scripts/smoke-test.sh` also requires that local pair.
 The small authored XDF fixtures under crate tests are synthetic and are included.
 
+## Help improve TunerNook
+
+I made this for myself, but I hope other people can use it, improve it, and
+share it. If something breaks or feels confusing, please open an issue with the
+app version and steps to reproduce it. I’m willing to work on fixes and
+improvements, and comments and pull requests are welcome. Please do not post
+private calibration BIN/XDF files; a minimal example or debug report is safer.
+
 ## License
 
 Project-authored code is licensed under the MIT License; see [LICENSE](LICENSE).
 This license does not grant rights to redistribute excluded third-party or
 user-supplied calibration data.
-
-TunerNook is provided as-is. The project maintainer does not warrant or take
-responsibility for external-agent work or outcomes from using the software.
-Users are responsible for independently reviewing all analyses and calibration
-changes before applying or using them.
