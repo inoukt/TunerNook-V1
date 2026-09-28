@@ -33,4 +33,4 @@
 - [x] Add exact path, retention, non-copying, and path-privacy semantics to README.
 - [x] Verify README relative links and key path descriptions against implementation.
 - [x] Run `git diff --check` and `cargo fmt --all -- --check` (documentation-only).
-- [ ] Commit and push README and SDD docs to `origin/main`; synchronize `codex/four-area-app-split`.
+- [x] Commit and push README and SDD docs to `origin/main`; synchronize `codex/four-area-app-split`.
